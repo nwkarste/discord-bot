@@ -1,0 +1,29 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "repo for deploying test bot to discord",
+  "main": "index.js",
+  "engines": {
+    "node": "9.x",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwkarste/discord-bot.git"
+  },
+ "keywords": [
+    "heroku",
+    "discord.js"
+  ],
+  "author": "Nathan K",
+  "license": "MIT",
+  "homepage": "https://github.com/nwkarste/discord-bot#readme",
+  "dependencies": {
+    "discord.io": "github:woor/discord.io#gateway_v6",
+    "npm": "^5.7.1",
+    "winston": "^2.4.1"
+  }
+}
