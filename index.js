@@ -22,9 +22,6 @@ bot.on('ready', function (evt) {
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
-    // Our bot needs to know if it will execute a command
-    // It will listen for messages that will start with `!`
-
     var patt = /^! *[0-9]{0,2}d[0-9]{0,3}( +[0-9]{0,2}d[0-9]{0,3}){0,2}$/;
     if (message.match(patt)) {
 
@@ -57,7 +54,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 combinedRolls += roll + "/" + dice_max + ", ";
             }
         }
-        var fullMessage = totalRoll + combinedRolls.substring(0, combinedRolls.length - 2) + ")";
+        var fullMessage = user + " rolled\n" + totalRoll + combinedRolls.substring(0, combinedRolls.length - 2) + ")";
         bot.sendMessage({
             to: channelID,
             message: fullMessage
