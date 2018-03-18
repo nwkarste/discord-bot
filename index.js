@@ -22,7 +22,7 @@ bot.on('ready', function (evt) {
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
-    var patt = /^! *[0-9]{0,2}d[0-9]{0,3}( +[0-9]{0,2}d[0-9]{0,3}){0,2}$/;
+    var patt = /^! *[0-9]{0,2}d[0-9]{0,3}( +[0-9]{0,2}d[0-9]{0,3}){0,10}$/;
     if (message.match(patt)) {
 
         var args = message.substring(1).split(' ');
