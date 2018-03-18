@@ -27,6 +27,7 @@ function binaryIndexOf(spellBook, searchElement) {
         currentIndex = (minIndex + maxIndex) / 2 | 0;
         currentElement = spellBook[currentIndex];
         currentSpell = currentElement.name.toString().toLowerCase();
+        logger.info(currentSpell);
 
         if (currentSpell.indexOf(searchElement) === 0) {
             return currentIndex;
