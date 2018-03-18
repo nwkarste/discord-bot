@@ -8,4 +8,5 @@
 * Getting discord bot token in heroku https://devcenter.heroku.com/articles/config-vars
 
 ## ToDo
-I'm thinking about setting up a spell request query functionality for dnd 5e.
+* cleanup general
+* unit tests
