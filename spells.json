@@ -1231,21 +1231,6 @@
     "circles":"Coast"
   },
   {
-    "name":"Conjure Hezrou",
-    "desc":"You summon a hezrou that appears in an unoccupied space you can see within range. The hezrou disappears when it drops to 0 hit points or when the spell ends.\\nThe hezrou’s attitude depends on the value of the food used as a material component for this spell. Roll initiative for the hezrou, which has its own turns. At the start of the hezrou’s turn, the DM makes a secret Charisma check on your behalf, with a bonus equal to the food’s value divided by 20. The check DC starts at 10 and increases by 2 each round. You can issue orders to the hezrou and have it obey you as long as you succeed on the Charisma check.\\nIf the check fails, the spell no longer requires concentration and the demon is no longer under your control. The hezrou then focuses on devouring any corpses it can see. If there are no such meals at hand, it attacks the nearest creatures and eats anything it kills. If its hit points are reduced to below half its hit point maximum, it returns to the Abyss.\\nAs part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned hezrou cannot cross the circle or target anyone in it while the spell lasts.",
-    "page":"ua tobm 2",
-    "range":"60 feet",
-    "components":"V, S, M",
-    "material":"Food worth at least 100 gp, which the spell consumes.",
-    "ritual":"no",
-    "duration":"Up to 1 hour",
-    "concentration":"yes",
-    "casting_time":"1 action",
-    "level":"7th-level",
-    "school":"Conjuration",
-    "class":"Sorcerer, Warlock, Wizard"
-  },
-  {
     "name":"Conjure Fey",
     "desc":"You summon a fey creature of challenge rating 6 or lower, or a fey spirit that takes the form of a beast of challenge rating 6 or lower. It appears in an unoccupied space that you can see within range. The fey creature disappears when it drops to 0 hit points or when the spell ends.\\nThe fey creature is friendly to you and your companions for the duration. Roll initiative for the creature, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you), as long as they don't violate its alignment. If you don’t issue any commands to the fey creature, it defends itself from hostile creatures but otherwise takes no actions.\\nIf your concentration is broken, the fey creature doesn’t disappear. Instead, you lose control of the fey creature, it becomes hostile toward you and your companions, and it might attack. An uncontrolled fey creature can't be dismissed by you, and it disappears 1 hour after you summoned it.\\nThe DM has the fey creature’s statistics.",
     "higher_level":"When you cast this spell using a spell slot of 7th level or higher, the challenge rating increases by 1 for each slot level above 6th.",
@@ -1259,6 +1244,21 @@
     "level":"6th-level",
     "school":"Conjuration",
     "class":"Druid, Warlock"
+  },
+  {
+    "name":"Conjure Hezrou",
+    "desc":"You summon a hezrou that appears in an unoccupied space you can see within range. The hezrou disappears when it drops to 0 hit points or when the spell ends.\\nThe hezrou’s attitude depends on the value of the food used as a material component for this spell. Roll initiative for the hezrou, which has its own turns. At the start of the hezrou’s turn, the DM makes a secret Charisma check on your behalf, with a bonus equal to the food’s value divided by 20. The check DC starts at 10 and increases by 2 each round. You can issue orders to the hezrou and have it obey you as long as you succeed on the Charisma check.\\nIf the check fails, the spell no longer requires concentration and the demon is no longer under your control. The hezrou then focuses on devouring any corpses it can see. If there are no such meals at hand, it attacks the nearest creatures and eats anything it kills. If its hit points are reduced to below half its hit point maximum, it returns to the Abyss.\\nAs part of casting the spell, you can scribe a circle on the ground using the blood of an intelligent humanoid slain within the past 24 hours. The circle is large enough to encompass your space. The summoned hezrou cannot cross the circle or target anyone in it while the spell lasts.",
+    "page":"ua tobm 2",
+    "range":"60 feet",
+    "components":"V, S, M",
+    "material":"Food worth at least 100 gp, which the spell consumes.",
+    "ritual":"no",
+    "duration":"Up to 1 hour",
+    "concentration":"yes",
+    "casting_time":"1 action",
+    "level":"7th-level",
+    "school":"Conjuration",
+    "class":"Sorcerer, Warlock, Wizard"
   },
   {
     "name":"Conjure Lesser Demon",
@@ -2035,21 +2035,6 @@
     "patrons":"Archfey, Great Old One"
   },
   {
-    "name":"Drawmij's Instant Summons",
-    "desc":"You touch an object weighing 10 pounds or less whose longest dimension is 6 feet or less. The spell leaves an invisible mark on its surface and invisibly inscribes the name of the item on the sapphire you use as the material component. Each time you cast this spell, you must use a different sapphire.\\nAt any time thereafter, you can use your action to speak the item’s name and crush the sapphire. The item instantly appears in your hand regardless of physical or planar distances, and the spell ends.\\nIf another creature is holding or carrying the item, crushing the sapphire doesn’t transport the item to you, but instead you learn who the creature possessing the object is and roughly where that creature is located at that moment.\\nDispel magic or a similar effect successfully applied to the sapphire ends this spell’s effect.",
-    "page":"phb 235",
-    "range":"Touch",
-    "components":"V, S, M",
-    "material":"A sapphire worth 1,000 gp.",
-    "ritual":"yes",
-    "duration":"Until dispelled",
-    "concentration":"no",
-    "casting_time":"1 minute",
-    "level":"6th-level",
-    "school":"Conjuration",
-    "class":"Ritual Caster, Wizard"
-  },
-  {
     "name":"Dominate Monster",
     "desc":"You attempt to beguile a creature that you can see within range. It must succeed on a wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw.\\nWhile the creature is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as “Attack that creature,” “Run over there,” or “Fetch that object.” If the creature completes the order and doesn’t receive further direction from you, it defends and preserves itself to the best of its ability.\\nYou can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn’t do anything that you don’t allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well.\\nEach time the target takes damage, it makes a new wisdom saving throw against the spell. If the saving throw succeeds, the spell ends.",
     "higher_level":"When you cast this spell with a 9th-level spell slot, the duration is concentration, up to 8 hours.",
@@ -2097,6 +2082,21 @@
     "level":"2nd-Level",
     "school":"Transmutation",
     "class":"Sorcerer, Wizard"
+  },
+  {
+    "name":"Drawmij's Instant Summons",
+    "desc":"You touch an object weighing 10 pounds or less whose longest dimension is 6 feet or less. The spell leaves an invisible mark on its surface and invisibly inscribes the name of the item on the sapphire you use as the material component. Each time you cast this spell, you must use a different sapphire.\\nAt any time thereafter, you can use your action to speak the item’s name and crush the sapphire. The item instantly appears in your hand regardless of physical or planar distances, and the spell ends.\\nIf another creature is holding or carrying the item, crushing the sapphire doesn’t transport the item to you, but instead you learn who the creature possessing the object is and roughly where that creature is located at that moment.\\nDispel magic or a similar effect successfully applied to the sapphire ends this spell’s effect.",
+    "page":"phb 235",
+    "range":"Touch",
+    "components":"V, S, M",
+    "material":"A sapphire worth 1,000 gp.",
+    "ritual":"yes",
+    "duration":"Until dispelled",
+    "concentration":"no",
+    "casting_time":"1 minute",
+    "level":"6th-level",
+    "school":"Conjuration",
+    "class":"Ritual Caster, Wizard"
   },
   {
     "name":"Dream",
@@ -6474,20 +6474,6 @@
     "class":"Sorcerer, Warlock, Wizard"
   },
   {
-    "name":"Thunderous Smite",
-    "desc":"The first time you hit with a melee weapon attack during this spell’s duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a strength saving throw or be pushed 10 feet away from you and knocked prone.",
-    "page":"phb 282",
-    "range":"Self",
-    "components":"V",
-    "ritual":"no",
-    "duration":"Up to 1 minute",
-    "concentration":"yes",
-    "casting_time":"1 bonus action",
-    "level":"1st-level",
-    "school":"Evocation",
-    "class":"Paladin"
-  },
-  {
     "name":"Thunderclap",
     "desc":"You create a burst of thunderous sound, which can be heard 100 feet away. Each creature other than you within 5 feet of you must make a Constitution saving throw. On a failed save, the creature takes 1d6 thunder damage.\\nThe spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
     "page":"ee pc 22",
@@ -6500,6 +6486,20 @@
     "level":"Cantrip",
     "school":"Evocation",
     "class":"Bard, Druid, Sorcerer, Warlock, Wizard"
+  },
+  {
+    "name":"Thunderous Smite",
+    "desc":"The first time you hit with a melee weapon attack during this spell’s duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a strength saving throw or be pushed 10 feet away from you and knocked prone.",
+    "page":"phb 282",
+    "range":"Self",
+    "components":"V",
+    "ritual":"no",
+    "duration":"Up to 1 minute",
+    "concentration":"yes",
+    "casting_time":"1 bonus action",
+    "level":"1st-level",
+    "school":"Evocation",
+    "class":"Paladin"
   },
   {
     "name":"Thunderwave",
