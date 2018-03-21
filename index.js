@@ -92,7 +92,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     combinedRolls += roll + '/' + diceMax + ', ';
                 }
             }
-            var fullMessage = user + " rolled\n" + totalRoll + combinedRolls.substring(0, combinedRolls.length - 2) + ')';
+            var fullMessage = user + " rolled " + totalRoll + combinedRolls.substring(0, combinedRolls.length - 2) + ')';
             bot.sendMessage({
                 to: channelID,
                 message: fullMessage
