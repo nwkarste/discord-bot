@@ -47,6 +47,51 @@ function spellMatch(spellBook, spell) {
     return currentSpell.indexOf(spell.toLowerCase()) === 0;
 }
 
+function isRoll(message) {
+    var pattTemp = '[0-9]{0,2}d[0-9]{0,3}';
+    var pattDice = util.format('^! *%s([ \+]+%s){0,10}$', pattTemp, pattTemp)
+    val = message.match(RegExp(pattDice));
+    return val != null
+}
+
+function isSpell(message) {
+    var pattSpell = '^! *spell .*$';
+    val = message.match(RegExp(pattSpell))
+    return val != null
+}
+
+function rollDice(message) {
+    var message = message.substring(1).replace(/\+/g, ' ');
+    var dice = message.match(/\S+/g);
+    var diceLength = dice.length;
+    var totalRoll = 0;
+    var combinedRolls = " (";
+    for (var i = 0; i < diceLength; i++) {
+        rolls = dice[i].split('d');
+        var totalRolls;
+        if (rolls[0]) {
+            totalRolls = rolls[0];
+        }
+        else {
+            totalRolls = 1;
+        }
+        var diceMax;
+        if (rolls[1]) {
+            diceMax = rolls[1];
+        }
+        else {
+            diceMax = 20;
+        }
+        for (var j = 0; j < totalRolls; j++) {
+            var roll = randomNum(diceMax);
+            totalRoll += roll;
+            combinedRolls += roll + '/' + diceMax + ', ';
+        }
+    }
+    var fullMessage = totalRoll + combinedRolls.substring(0, combinedRolls.length - 2) + ')';
+    return fullMessage
+}
+
 // Initialize Discord Bot
 var bot = new Discord.Client({
    token: env.TOKEN,
@@ -59,46 +104,15 @@ bot.on('ready', function (evt) {
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
     if (message.substring(0, 1) === '!') {
-        var pattTemp = '[0-9]{0,2}d[0-9]{0,3}';
-        var pattDice = util.format('^! *%s( +%s){0,10}$', pattTemp, pattTemp)
-        var pattSpell = '^! *spell .*$';
-        if (message.match(RegExp(pattDice))) {
-            var args = message.substring(1).split(' ');
-            var cmd = args[0];
-
-            var dice = message.substring(1).match(/\S+/g);
-            var diceLength = dice.length;
-            var totalRoll = 0;
-            var combinedRolls = " (";
-            for (var i = 0; i < diceLength; i++) {
-                rolls = dice[i].split('d');
-                var totalRolls;
-                if (rolls[0]) {
-                    totalRolls = rolls[0];
-                }
-                else {
-                    totalRolls = 1;
-                }
-                var diceMax;
-                if (rolls[1]) {
-                    diceMax = rolls[1];
-                }
-                else {
-                    diceMax = 20;
-                }
-                for (var j = 0; j < totalRolls; j++) {
-                    var roll = randomNum(diceMax);
-                    totalRoll += roll;
-                    combinedRolls += roll + '/' + diceMax + ', ';
-                }
-            }
-            var fullMessage = user + " rolled " + totalRoll + combinedRolls.substring(0, combinedRolls.length - 2) + ')';
+        if ( isRoll(message) ) {
+            roll = rollDice(message);
+            finalMessage = user + " rolled " + roll
             bot.sendMessage({
                 to: channelID,
-                message: fullMessage
+                message: finalMessage
             });
         }
-        else if (message.match(RegExp(pattSpell))){
+        else if ( isSpell(message) ) {
             var spellName = message.substring(message.indexOf("spell ") + 6);
             var fullMessage;
             spellName = spellName.toLowerCase();
