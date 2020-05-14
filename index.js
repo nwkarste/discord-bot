@@ -1,17 +1,17 @@
 var bs = require('binarysearch');
 var Discord = require('discord.io');
-var logger = require('winston');
+var winston = require('winston');
 var env = require('./env');
 var spells = require('./spells.json');
 var util = require('util');
 
 
 // Configure logger settings
-logger.remove(logger.transports.Console);
-logger.add(logger.transports.Console, {
+winston.remove(winston.transports.Console);
+winston.add(new winston.transports.Console, {
     colorize: true
 });
-logger.level = 'debug';
+winston.level = 'debug';
 
 function randomNum(max) {
     return Math.floor(Math.random() * max) + 1;
@@ -98,9 +98,9 @@ var bot = new Discord.Client({
    autorun: true
 });
 bot.on('ready', function (evt) {
-    logger.info('Connected');
-    logger.info('Logged in as: ');
-    logger.info(bot.username + ' - (' + bot.id + ')');
+    winston.info('Connected');
+    winston.info('Logged in as: ');
+    winston.info(bot.username + ' - (' + bot.id + ')');
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
     if (message.substring(0, 1) === '!') {
