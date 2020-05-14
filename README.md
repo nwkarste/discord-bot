@@ -7,5 +7,18 @@
 * Another set of instructions specific to discord bot defining https://medium.com/@renesansz/tutorial-creating-a-simple-discord-bot-9465a2764dc0
 * Getting discord bot token in heroku https://devcenter.heroku.com/articles/config-vars
 
+## Unit tests
+Run them with mocha
+
+### Install
+```
+npm install --global mocha
+
+### Running
+```
+mocha
+```
+
 ## ToDo
-* cleanup general
+* Continuous integration
+* auto deploy on github merge
