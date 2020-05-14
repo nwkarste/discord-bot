@@ -68,11 +68,12 @@ nwkarste rolled 6 (2/20, +4)
 ## Unit tests
 Run them with mocha
 
-### Install
+### Install mocha
 ```
 npm install --global mocha
+```
 
-### Running
+### Running mocha tests
 ```
 mocha
 ```
