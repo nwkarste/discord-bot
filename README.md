@@ -31,7 +31,7 @@ nwkarste rolled 11 (11/20)
 
 * adding a modifier
 ```
-!d + 3
+!d + 4
 nwkarste rolled 6 (2/20, +4)
 ```
 
