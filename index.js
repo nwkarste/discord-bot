@@ -48,8 +48,9 @@ function spellMatch(spellBook, spell) {
 }
 
 function isRoll(message) {
-    var pattTemp = '[0-9]{0,2}d[0-9]{0,3}';
-    var pattDice = util.format('^! *%s([ \+]+%s){0,10}$', pattTemp, pattTemp)
+    var pattFirstDice = '[0-9]{0,2}d([1-9][0-9]{0,2})?';
+    var pattNextDice = '[0-9]{0,2}d?([1-9][0-9]{0,2})?';
+    var pattDice = util.format('^! *%s([ \+]+%s){0,10}$', pattFirstDice, pattNextDice)
     val = message.match(RegExp(pattDice));
     return val != null
 }
@@ -67,25 +68,32 @@ function rollDice(message) {
     var totalRoll = 0;
     var combinedRolls = " (";
     for (var i = 0; i < diceLength; i++) {
-        rolls = dice[i].split('d');
-        var totalRolls;
-        if (rolls[0]) {
-            totalRolls = rolls[0];
+        //check for constant modifier
+        if (dice[i].indexOf('d') == -1) {
+            totalRoll += parseInt(dice[i], 10);
+            combinedRolls += '+' + dice[i] + ', ';
         }
         else {
-            totalRolls = 1;
-        }
-        var diceMax;
-        if (rolls[1]) {
-            diceMax = rolls[1];
-        }
-        else {
-            diceMax = 20;
-        }
-        for (var j = 0; j < totalRolls; j++) {
-            var roll = randomNum(diceMax);
-            totalRoll += roll;
-            combinedRolls += roll + '/' + diceMax + ', ';
+            rolls = dice[i].split('d');
+            var totalRolls;
+            if (rolls[0]) {
+                totalRolls = rolls[0];
+            }
+            else {
+                totalRolls = 1;
+            }
+            var diceMax;
+            if (rolls[1]) {
+                diceMax = rolls[1];
+            }
+            else {
+                diceMax = 20;
+            }
+            for (var j = 0; j < totalRolls; j++) {
+                var roll = randomNum(diceMax);
+                totalRoll += roll;
+                combinedRolls += roll + '/' + diceMax + ', ';
+            }
         }
     }
     var fullMessage = totalRoll + combinedRolls.substring(0, combinedRolls.length - 2) + ')';
