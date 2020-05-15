@@ -49,8 +49,8 @@ function spellMatch(spellBook, spell) {
 
 function isRoll(message) {
     var pattFirstDice = '[0-9]{0,2}d([1-9][0-9]{0,2})?';
-    var pattNextDice = '-?[0-9]{0,2}d?([1-9][0-9]{0,2})?';
-    var pattDice = util.format('^! *%s([ \+]+%s){0,10}$', pattFirstDice, pattNextDice)
+    var pattNextDice = '[0-9]{0,2}(d|[0-9])([1-9][0-9]{0,2})?';
+    var pattDice = util.format('^! *%s( *[ \+-] *%s){0,10}$', pattFirstDice, pattNextDice)
     val = message.match(RegExp(pattDice));
     return val != null
 }

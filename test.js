@@ -43,6 +43,7 @@ describe('isRoll()', function() {
         {arg: "!3d0", expected: false},
         {arg: "!d + 4", expected: true},
         {arg: "!d - 4", expected: true},
+        {arg: "!d +++ 4", expected: false},
     ];
     tests.forEach(function(test) {
         it("regex " + test.arg + " " + test.expected, function() {
