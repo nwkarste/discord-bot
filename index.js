@@ -49,7 +49,7 @@ function spellMatch(spellBook, spell) {
 
 function isRoll(message) {
     var pattFirstDice = '[0-9]{0,2}d([1-9][0-9]{0,2})?';
-    var pattNextDice = '[0-9]{0,2}d?([1-9][0-9]{0,2})?';
+    var pattNextDice = '-?[0-9]{0,2}d?([1-9][0-9]{0,2})?';
     var pattDice = util.format('^! *%s([ \+]+%s){0,10}$', pattFirstDice, pattNextDice)
     val = message.match(RegExp(pattDice));
     return val != null
@@ -63,16 +63,28 @@ function isSpell(message) {
 
 function rollDice(message) {
     var message = message.substring(1).replace(/\+/g, ' ');
+    var message = message.replace('-', ' - ');
     var dice = message.match(/\S+/g);
     var diceLength = dice.length;
     var totalRoll = 0;
     var combinedRolls = " (";
+    var subtractNext = false;
     for (var i = 0; i < diceLength; i++) {
         //check for constant modifier
-        if (dice[i].indexOf('d') == -1) {
-            totalRoll += parseInt(dice[i], 10);
-            combinedRolls += '+' + dice[i] + ', ';
+        if (dice[i]=='-') {
+            subtractNext = true;
         }
+        else if (dice[i].indexOf('d') == -1) {
+            if (subtractNext) {
+                totalRoll -= parseInt(dice[i], 10);
+                combinedRolls += '-' + dice[i] + ', ';
+                subtractNext = false
+            }
+            else {
+                totalRoll += parseInt(dice[i], 10);
+                combinedRolls += '+' + dice[i] + ', ';
+            }
+       }
         else {
             rolls = dice[i].split('d');
             var totalRolls;
@@ -91,9 +103,16 @@ function rollDice(message) {
             }
             for (var j = 0; j < totalRolls; j++) {
                 var roll = randomNum(diceMax);
-                totalRoll += roll;
-                combinedRolls += roll + '/' + diceMax + ', ';
-            }
+                if (subtractNext) {
+                    totalRoll -= roll;
+                    combinedRolls += '-' + roll + '/' + diceMax + ', ';
+                }
+                else {
+                    totalRoll += roll;
+                    combinedRolls += roll + '/' + diceMax + ', ';
+                }
+           }
+           subtractNext = false
         }
     }
     var fullMessage = totalRoll + combinedRolls.substring(0, combinedRolls.length - 2) + ')';
