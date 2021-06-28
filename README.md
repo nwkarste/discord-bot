@@ -79,5 +79,4 @@ mocha
 ```
 
 ## ToDo
-* Continuous integration
-* auto deploy on github merge
+* Use db for spell list
